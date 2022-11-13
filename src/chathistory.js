@@ -4,9 +4,6 @@ import sendLogo from "./images/send.png";
 const Chathandler = ({ alias, roomnumber, socket }) => {
   const [message_to_be_sent, setmessagetobesent] = useState("");
   const [messagearr, setmessagearr] = useState([]);
-  socket.on("joined", (data) => {
-    alert(`new user joined`);
-  });
   const messagehandler = async () => {
     if (message_to_be_sent !== "") {
       const data_to_be_sent = {
@@ -49,7 +46,7 @@ const Chathandler = ({ alias, roomnumber, socket }) => {
             } else {
               return (
                 <div className="left">
-                  <b style="tex">{value.username}</b>:{value.message}
+                  <b>{value.username}</b>:{value.message}
                 </div>
               );
             }
@@ -69,7 +66,7 @@ const Chathandler = ({ alias, roomnumber, socket }) => {
             }}
             className="sendBtn"
           >
-            <img src={sendLogo} alt="" Send />
+            <img src={sendLogo} alt="Send" />
           </button>
         </div>
       </div>
